@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crrc.mrodp.dao.project.ProjectDao">
+    <sql id="projectColum">
+        id,
+        projectCode,
+        projectName,
+        projectType,
+        projectPlatform,
+        carCount,
+        planStatus,
+        planStartDate,
+        planEndDate,
+        startDate,
+        endDate,
+        createtime,
+        updatetime
+    </sql>
+
+    <select id="getProjectList" resultType="Project">
+        select <include refid="projectColum"/>
+        from mrodp_t_project
+        where
+          projectCode=#{projectCode}
+    </select>
+</mapper>
